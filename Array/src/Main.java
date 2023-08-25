@@ -1,7 +1,9 @@
 
 import arrayEasy.FrequencyOfArray;
+import arrayEasy.Sorting.Sorting;
 import arraySearch.LinearSearch;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +21,9 @@ public class Main {
             System.out.println("1 for printing the highest and lowest frequency number: ");
             System.out.println("2 for searching for an element: ");
             System.out.println("3 for searching the number of elements that has even no of digits: ");
+            System.out.println("4 for selection sorting the array: ");
+            System.out.println("5 for bubble sorting the array: ");
+            System.out.println("6 for insertion sorting the array: ");
             int ch =sc.nextInt();
             switch (ch){
                 case 1 : {
@@ -39,6 +44,24 @@ public class Main {
                 case 3 : {
                     LinearSearch lr = new LinearSearch();
                     System.out.println("The number of elements having even digits are : "+lr.searchEvenDigits(arr));
+                    break;
+                }
+                case 4 : {
+                    Sorting ob = new Sorting();
+                    ob.selectionSort(arr,n);
+                    System.out.println("Selection Sorting : "+Arrays.toString(arr));
+                    break;
+                }
+                case 5 : {
+                    Sorting ob = new Sorting();
+                    ob.bubbleSort(arr,n);
+                    System.out.println("Bubble Sorting: "+Arrays.toString(arr));
+                    break;
+                }
+                case 6 : {
+                    Sorting ob = new Sorting();
+                    ob.insertionSort(arr,n);
+                    System.out.println("Insertion Sorting: "+Arrays.toString(arr));
                     break;
                 }
                 default:
