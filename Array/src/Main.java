@@ -24,6 +24,7 @@ public class Main {
             System.out.println("4 for selection sorting the array: ");
             System.out.println("5 for bubble sorting the array: ");
             System.out.println("6 for insertion sorting the array: ");
+            System.out.println("7 for merge sorting the array: ");
             int ch =sc.nextInt();
             switch (ch){
                 case 1 : {
@@ -62,6 +63,12 @@ public class Main {
                     Sorting ob = new Sorting();
                     ob.insertionSort(arr,n);
                     System.out.println("Insertion Sorting: "+Arrays.toString(arr));
+                    break;
+                }
+                case 7 : {
+                    Sorting ob = new Sorting();
+                    ob.mergeSort(arr,0,n-1);
+                    System.out.println("Merge Sorting: "+Arrays.toString(arr));
                     break;
                 }
                 default:

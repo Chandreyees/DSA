@@ -1,5 +1,7 @@
 package arrayEasy.Sorting;
 
+import java.util.ArrayList;
+
 public class Sorting {
 
     public void selectionSort(int[] ar,int n){
@@ -36,6 +38,41 @@ public class Sorting {
                 }
             }
         }
+    }
+    
+    public void mergeSort(int[] arr, int low, int high){
+        if(low == high)
+            return;
+        int mid = (low+high)/2;
+        mergeSort(arr,low, mid);
+        mergeSort(arr,mid+1, high);
+        merge(arr,low,mid,high);
+    }
+
+    private void merge(int[] arr, int low, int mid, int high) {
+       int right = mid+1, left =low;
+        ArrayList<Integer> temp = new ArrayList<>(high+1);
+       while(left<=mid && right<=high){
+          if(arr[left]>arr[right]){
+              temp.add(arr[right]);
+              right++;
+          }
+          else {
+              temp.add(arr[left]);
+              left++;
+          }
+       }
+       while(left<=mid){
+           temp.add(arr[left]);
+           left++;
+       }
+       while(right<=high){
+           temp.add(arr[right]);
+           right++;
+       }
+       for(int i=low;i<=high;i++){
+           arr[i] = temp.get(i-low);
+       }
     }
 
     private void swap(int i,int j,int[] arr){
