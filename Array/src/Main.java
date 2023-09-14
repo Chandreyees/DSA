@@ -1,5 +1,9 @@
 
 import arrayEasy.FrequencyOfArray;
+import arrayEasy.MaximumElement;
+import arrayEasy.MissingNumber;
+import arrayEasy.Sorting.CheckIfArrayIsSorted;
+import arrayEasy.Sorting.RemoveDuplicates;
 import arrayEasy.Sorting.Sorting;
 import arraySearch.LinearSearch;
 
@@ -25,6 +29,13 @@ public class Main {
             System.out.println("5 for bubble sorting the array: ");
             System.out.println("6 for insertion sorting the array: ");
             System.out.println("7 for merge sorting the array: ");
+            System.out.println("8 for quick sorting the array: ");
+            System.out.println("9 for finding Largest number in an array: ");
+            System.out.println("10 for finding Second Largest number in an array: ");
+            System.out.println("11 for count majority element in an array: ");
+            System.out.println("12 to check of the array is sorted or not: ");
+            System.out.println("13 to remove duplicates in the array: ");
+            System.out.println("14 to find the missing number in the array: ");
             int ch =sc.nextInt();
             switch (ch){
                 case 1 : {
@@ -69,6 +80,53 @@ public class Main {
                     Sorting ob = new Sorting();
                     ob.mergeSort(arr,0,n-1);
                     System.out.println("Merge Sorting: "+Arrays.toString(arr));
+                    break;
+                }
+                case 8 : {
+                    Sorting ob = new Sorting();
+                    ob.quickSort(arr,0,n-1);
+                    System.out.println("Merge Sorting: "+Arrays.toString(arr));
+                    break;
+                }
+                case 9 : {
+                    MaximumElement ob = new MaximumElement();
+                    int ans = ob.largestElement(arr,n);
+                    System.out.println("Largest Element in the array is : "+ans);
+                    break;
+                }
+                case 10 : {
+                    MaximumElement ob = new MaximumElement();
+                    int ans = ob.secondLargestElement(arr,n);
+                    System.out.println("Largest Element in the array is : "+ans);
+                    break;
+                }
+                case 11 : {
+                    FrequencyOfArray ob = new FrequencyOfArray(n);
+                    int ans=ob.countMajorityElement(arr);
+                    System.out.println(ans);
+                    break;
+                }
+                case 12 : {
+                    CheckIfArrayIsSorted ob = new CheckIfArrayIsSorted();
+                    boolean ans=ob.checkIfArrayIsSorted(arr,n);
+                    if(ans)
+                        System.out.println("Yes the array is Sorted");
+                    else
+                        System.out.println("Not sorted");
+                    break;
+                }
+                case 13 : {
+                    RemoveDuplicates ob = new RemoveDuplicates();
+                    System.out.println("Original Array: "+Arrays.toString(arr));
+                    ob.removeDuplicates(arr,n);
+                    System.out.println("After removing duplicates: "+Arrays.toString(arr));
+                    break;
+                }
+                case 14 : {
+                    MissingNumber ob = new MissingNumber();
+                    System.out.println("Original Array: "+Arrays.toString(arr));
+                    int ans=ob.findMissingNumber(arr);
+                    System.out.println("Missing number is: "+ans);
                     break;
                 }
                 default:

@@ -75,6 +75,31 @@ public class Sorting {
        }
     }
 
+    public void quickSort(int[] arr,int low,int high){
+        if(low<high){
+            int partitionIndex = partition(arr,low,high);
+            quickSort(arr,low,partitionIndex-1);
+            quickSort(arr,partitionIndex+1,high);
+        }
+        else
+            return;
+    }
+
+    private int partition(int[] arr, int low, int high) {
+        int pivot = low;
+        int i= low,j=high;
+        while(i<j) {
+            while(arr[pivot]>=arr[i] && i<=high-1) //finding the first smallest element
+                i++;
+            while(arr[pivot]<arr[j] && j>=low+1)  //finding the first smallest element
+                j--;
+            if(i<j)
+                swap(i,j,arr);
+        }
+        swap(j,pivot,arr);
+        return j;
+    }
+
     private void swap(int i,int j,int[] arr){
         int temp = arr[i];
         arr[i] = arr[j];
