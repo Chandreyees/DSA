@@ -1,4 +1,4 @@
-package arrayEasy.Sorting;
+package arrayEasy;
 
 import java.util.*;
 
@@ -77,5 +77,19 @@ public class ArrayManipulation {
         }
         return ans;
 
+    }
+
+    public void reverseArray(int[] arr,int low,int high){
+        while(low<high-1){
+            swap(low,high-1,arr);
+            low++;
+            high--;
+        }
+    }
+
+    private void swap(int i,int j,int[] arr){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }

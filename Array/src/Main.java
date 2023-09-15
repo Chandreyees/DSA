@@ -10,6 +10,8 @@ import arraySearch.LinearSearch;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static arrayEasy.RotateArray.leftRotateArray;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -36,6 +38,7 @@ public class Main {
             System.out.println("12 to check of the array is sorted or not: ");
             System.out.println("13 to remove duplicates in the array: ");
             System.out.println("14 to find the missing number in the array: ");
+            System.out.println("15 to left rotate the array by 'd' position : ");
             int ch =sc.nextInt();
             switch (ch){
                 case 1 : {
@@ -127,6 +130,14 @@ public class Main {
                     System.out.println("Original Array: "+Arrays.toString(arr));
                     int ans=ob.findMissingNumber(arr);
                     System.out.println("Missing number is: "+ans);
+                    break;
+                }
+                case 15 : {
+                    System.out.println("Enter the value of d: ");
+                    int d=sc.nextInt();
+                    System.out.println("Original Array: "+Arrays.toString(arr));
+                    leftRotateArray(arr,n,d);
+                    System.out.println("After rotating : "+Arrays.toString(arr));
                     break;
                 }
                 default:
