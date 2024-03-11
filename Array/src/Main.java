@@ -1,4 +1,5 @@
 
+import arrayEasy.ArrayManipulation;
 import arrayEasy.FrequencyOfArray;
 import arrayEasy.MaximumElement;
 import arrayEasy.MissingNumber;
@@ -8,6 +9,7 @@ import arrayEasy.Sorting.Sorting;
 import arraySearch.LinearSearch;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static arrayEasy.RotateArray.leftRotateArray;
@@ -15,11 +17,11 @@ import static arrayEasy.RotateArray.leftRotateArray;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the limit of the array: ");
-        int n = sc.nextInt();
-        int[] arr=new int[n];
         boolean flag = true;
         while(flag){
+            System.out.println("Enter the limit of the array: ");
+            int n = sc.nextInt();
+            int[] arr=new int[n];
             System.out.println("Enter the array elements : ");
             for(int i=0;i<n;i++)
                arr[i] = sc.nextInt();
@@ -39,6 +41,8 @@ public class Main {
             System.out.println("13 to remove duplicates in the array: ");
             System.out.println("14 to find the missing number in the array: ");
             System.out.println("15 to left rotate the array by 'd' position : ");
+            System.out.println("16 to Move All Zeroes At the end");
+            System.out.println("17 to get the Union of two Sorted Array");
             int ch =sc.nextInt();
             switch (ch){
                 case 1 : {
@@ -138,6 +142,28 @@ public class Main {
                     System.out.println("Original Array: "+Arrays.toString(arr));
                     leftRotateArray(arr,n,d);
                     System.out.println("After rotating : "+Arrays.toString(arr));
+                    break;
+                }
+                case 16 : {
+                    System.out.println("Original Array: "+Arrays.toString(arr));
+                    ArrayManipulation ob = new ArrayManipulation();
+                    ob.moveZeroes(n,arr);
+                    System.out.println("After moving zeroes : "+Arrays.toString(arr));
+                    break;
+                }
+                case 17 : {
+                    System.out.println("Enter the length of second array: ");
+                    int m = sc.nextInt();
+                    int ar2[]=new int[m];
+                    System.out.println("Enter the elements :");
+                    for(int i=0;i<m;i++)
+                        ar2[i]=sc.nextInt();
+                    System.out.println("Original Array: \n"+Arrays.toString(arr)+"\n"+Arrays.toString(ar2));
+                    ArrayManipulation ob = new ArrayManipulation();
+                    Arrays.sort(arr);
+                    Arrays.sort(ar2);
+                    List<Integer> ans=ob.getUnion(n,m,arr,ar2);
+                    System.out.println("Union of the arrays : "+ans.toString());
                     break;
                 }
                 default:

@@ -92,4 +92,52 @@ public class ArrayManipulation {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    public void moveZeroes(int n,int[] arr){
+        int j=0;
+        //find the first zero and intialize j with that value
+        for (int k=0;k<n;k++)
+        {
+            if(arr[k]==0){
+                j=k;
+                break;
+            }
+        }
+        //actual logic
+        if(j<n) {
+            for (int k = j + 1; k < n; k++) {
+                if (arr[j] == 0 && arr[k] != 0) {
+                    swap(j, k, arr);
+                    j++;
+                }
+            }
+        }
+    }
+
+    public List<Integer> getUnion(int n,int m, int[] a1,int[] a2) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int i=0,j=0;
+        while(i<n && j<m){
+            if(a1[i]<=a2[j]){
+                if(!list.contains(a1[i]))
+                    list.add(a1[i]);
+                i++;
+            }  else {
+                if(!list.contains(a2[j]))
+                    list.add(a2[j]);
+                j++;
+            }
+        }
+        while(i<n){
+            if(!list.contains(a1[i]))
+                list.add(a1[i]);
+            i++;
+        }
+        while(j<m){
+            if(!list.contains(a2[j]))
+                list.add(a2[j]);
+            j++;
+        }
+        return list;
+    }
 }

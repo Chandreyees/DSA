@@ -1,8 +1,15 @@
 package arrayEasy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class RotateArray {
 
-    public static void leftRotateArray(int[] arr,int n,int d){
+    public static void leftRotateArray(int[] arr, int n, int d) {
         /*
         int d= n%d;
         int[] temp= new int[d];
@@ -16,11 +23,12 @@ public class RotateArray {
             arr[i]=temp[k];*/
 
         //optimal
-        if(d==n)
+        if (d == n)
             return;
         ArrayManipulation arrayManipulation = new ArrayManipulation();
-        arrayManipulation.reverseArray(arr,0,d);
-        arrayManipulation.reverseArray(arr,d,n);
-        arrayManipulation.reverseArray(arr,0,n);
+        arrayManipulation.reverseArray(arr, 0, d);
+        arrayManipulation.reverseArray(arr, d, n);
+        arrayManipulation.reverseArray(arr, 0, n);
     }
+
 }
