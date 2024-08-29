@@ -1,2 +1,5 @@
-package Array;public class Basics {
+package Array;
+
+public class Basics {
+
 }

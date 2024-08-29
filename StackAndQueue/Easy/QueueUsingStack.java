@@ -2,17 +2,12 @@ package StackAndQueue.Easy;
 
 import java.util.Stack;
 
-public class ImplementQueueUsingStack {
+public class QueueUsingStack {
 
     private Stack<Integer> first;
     private Stack<Integer> second;
 
-    public ImplementQueueUsingStack(Stack<Integer> first, Stack<Integer> second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    public ImplementQueueUsingStack() {
+    public QueueUsingStack() {
         first = new Stack<>();
         second = new Stack<>();
     }

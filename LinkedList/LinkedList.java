@@ -3,8 +3,8 @@ package LinkedList;
 public class LinkedList {
 
     public ListNode head;
-    private ListNode tail;
-    private int size;
+    public ListNode tail;
+    public int size;
 
     public LinkedList() {
         this.size = 0;
@@ -35,10 +35,10 @@ public class LinkedList {
             insertFirst(val);
             return;
         }
-        ListNode ListNode = new ListNode(val);
-        tail.setNext(ListNode);
-        ListNode.setNext(null);
-        tail = ListNode;
+        ListNode node = new ListNode(val);
+        tail.setNext(node);
+        node.setNext(null);
+        tail = node;
         size+=1;
     }
 
@@ -141,5 +141,16 @@ public class LinkedList {
             temp=temp.next;
         }
         System.out.println("END");
+    }
+
+    public ListNode getNode(int index){
+        if(index==0)
+            return head;
+        ListNode temp = head;
+        while(index>0){
+            temp = temp.next;
+            index-=1;
+        }
+        return temp;
     }
 }

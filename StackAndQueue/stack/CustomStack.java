@@ -17,11 +17,8 @@ public class CustomStack {
             System.out.println("Stack is Full");
             return false;
         }
-        else
-        {
-            ptr++;
-            data[ptr] = value;
-        }
+        ptr++;
+        data[ptr] = value;
         return true;
     }
 
@@ -38,11 +35,11 @@ public class CustomStack {
         return data[ptr];
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return ptr==-1;
     }
 
-    private boolean isFull() {
+    public boolean isFull() {
         return ptr==data.length-1;
     }
 }

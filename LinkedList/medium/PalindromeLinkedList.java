@@ -1,2 +1,4 @@
-package LinkedList.medium;public class PalindromeLinkedList {
+package LinkedList.medium;
+
+public class PalindromeLinkedList {
 }

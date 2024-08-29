@@ -59,7 +59,7 @@ public class LongestSubArrayWithSumKPositive {
     }*/
 
     //optimal approach (two pointer)
-    private static int findLongestSubArrayLength(int[] ar, int n, int k){
+   /* private static int findLongestSubArrayLength(int[] ar, int n, int k){
         int left=0,sum=ar[0],maxLength=0, right=0;
         while(right<n){
             while(left<=right && sum>k){
@@ -75,5 +75,30 @@ public class LongestSubArrayWithSumKPositive {
             }
         }
         return maxLength;
+    }*/
+    private static int findLongestSubArrayLength(int[] ar, int n, int k){
+        int ans =0;
+        int i=0,j=1;
+        int sum = ar[0];
+        if(sum == k)
+            ans = 1;
+        while(i<n-1 && j<n){
+            sum+=ar[j];
+            if(sum==k){
+                int length = j-i+1;
+                ans = Math.max(ans,length);
+                j++;
+            }
+            else if(sum>k)
+            {
+                i++;
+                sum = ar[i];
+                j=i+1;
+            }
+            else
+                j++;
+        }
+        return ans;
     }
+
 }
